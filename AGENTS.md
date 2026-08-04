@@ -2,6 +2,14 @@
 
 ## 近期更新
 
+### 2026-08-04
+- 从 Vercel 部署切换到 GitHub Pages 部署
+- 仓库地址变更为 https://github.com/MoruTeaven/sticker-canned-docs
+- 创建 GitHub Actions 自动部署工作流（.github/workflows/deploy.yml）
+- 添加自定义域名 CNAME 文件（docs/public/CNAME，域名 sticker.moruteaven.com）
+- 删除 vercel.json 配置文件
+- 更新 README 部署说明
+
 ### 2026-06-25
 - 切换到绿沈之饴（greencandy）主题
 - 安装 greencandy 主题包
@@ -67,4 +75,8 @@ docs/
     theme/         # 主题配置
   guide/           # 用户指南文档
   public/          # 静态资源
+    CNAME          # GitHub Pages 自定义域名
+.github/
+  workflows/
+    deploy.yml     # GitHub Actions 部署工作流
 ```

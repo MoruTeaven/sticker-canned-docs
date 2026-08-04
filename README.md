@@ -25,11 +25,22 @@ npm run build
 npm run preview
 ```
 
-## 部署到 Vercel
+## 部署到 GitHub Pages
+
+站点通过 GitHub Actions 自动部署到 GitHub Pages，使用自定义域名 `sticker.moruteaven.com`。
+
+### 首次配置
 
 1. 将代码推送到 GitHub 仓库
-2. 在 Vercel 中导入该仓库
-3. Vercel 会自动识别并部署
+2. 在仓库 **Settings > Pages** 中，将 **Source** 设置为 **GitHub Actions**
+3. 在 DNS 服务商添加 CNAME 记录，将 `sticker.moruteaven.com` 指向 `moruteaven.github.io`
+4. 推送代码到 `main` 分支即可自动触发部署
+
+### 部署流程
+
+- 推送到 `main` 分支后，GitHub Actions 会自动构建并部署
+- 部署工作流定义在 `.github/workflows/deploy.yml`
+- 自定义域名配置在 `docs/public/CNAME`
 
 ## 项目结构
 
@@ -39,15 +50,18 @@ npm run preview
 │   │   ├── components/
 │   │   │   └── Home.vue       # 自定义首页组件
 │   │   ├── theme/
-│   │   │   ├── index.ts       # 主题配置
-│   │   │   └── custom.css     # 自定义样式
+│   │   │   └── index.ts       # 主题配置
 │   │   └── config.ts          # VitePress 配置
 │   ├── guide/
 │   │   ├── getting-started.md
 │   │   ├── usage.md
 │   │   └── faq.md
+│   ├── public/
+│   │   └── CNAME              # GitHub Pages 自定义域名
 │   └── index.md               # 首页
-├── vercel.json                # Vercel 部署配置
+├── .github/
+│   └── workflows/
+│       └── deploy.yml         # GitHub Actions 部署工作流
 └── package.json
 ```
 
