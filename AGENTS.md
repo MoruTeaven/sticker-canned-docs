@@ -9,6 +9,11 @@
 - 添加自定义域名 CNAME 文件（docs/public/CNAME，域名 sticker.moruteaven.com）
 - 删除 vercel.json 配置文件
 - 更新 README 部署说明
+- 修复 greencandy 主题配置：修复 enhanceApp 覆盖问题（下载页和更新日志页组件现在正确注册）
+- 删除 custom.css 文件（避免与 greencandy 主题样式冲突）
+- 删除未使用的 Layout.vue 文件
+- 移除自定义白色主色调配置，使用 greencandy 默认绿色主题
+- 简化 theme/index.ts，直接基于 GreenCandyTheme 扩展
 
 ### 2026-06-25
 - 切换到绿沈之饴（greencandy）主题

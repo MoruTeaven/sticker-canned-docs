@@ -53,10 +53,6 @@ export default defineConfig({
       copyright: 'Copyright © 2026 <a href="https://www.moruteaven.com/">抹露茶柒</a>'
     },
 
-    colors: {
-      primary: '#ffffff',
-      primaryDark: '#e0e0e0'
-    },
     radius: 0.5,
     shadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
     busuanzi: {
