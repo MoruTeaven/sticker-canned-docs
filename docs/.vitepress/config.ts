@@ -8,7 +8,7 @@ export default defineConfig({
   description: '一个 uTools 表情包管理插件',
   lang: 'zh-CN',
   base: '/',
-  appearance: 'dark',
+  appearance: true,
   themeConfig: {
     logo: '/logo.png',
     nav: [

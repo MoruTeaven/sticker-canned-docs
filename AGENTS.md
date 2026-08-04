@@ -14,6 +14,9 @@
 - 删除未使用的 Layout.vue 文件
 - 移除自定义白色主色调配置，使用 greencandy 默认绿色主题
 - 简化 theme/index.ts，直接基于 GreenCandyTheme 扩展
+- 修复首页配色：将 Home.vue 中的橙色/紫色自定义配色替换为 greencandy 绿色主题色
+- 将 appearance 从 'dark' 改为 true，启用 greencandy 主题模式切换
+- 将 @rollup/rollup-win32-x64-msvc 移至 optionalDependencies，修复 GitHub Actions Linux 构建
 
 ### 2026-06-25
 - 切换到绿沈之饴（greencandy）主题

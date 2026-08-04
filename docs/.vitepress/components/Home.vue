@@ -356,8 +356,8 @@ const stats = [
 
 .home {
   --home-max-width: 1180px;
-  --home-accent: #ff7a45;
-  --home-accent-2: #7c5cff;
+  --home-accent: #16a34a;
+  --home-accent-2: #22c55e;
   --home-surface: rgba(255, 255, 255, 0.76);
   --home-surface-strong: rgba(255, 255, 255, 0.94);
   --home-border: rgba(26, 26, 26, 0.1);
@@ -369,15 +369,15 @@ const stats = [
   overflow-x: hidden;
   color: var(--vp-c-text-1);
   background:
-    radial-gradient(circle at 12% 16%, rgba(255, 122, 69, 0.14), transparent 30%),
-    radial-gradient(circle at 90% 6%, rgba(124, 92, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 12% 16%, rgba(22, 163, 74, 0.14), transparent 30%),
+    radial-gradient(circle at 90% 6%, rgba(34, 197, 94, 0.12), transparent 28%),
     var(--vp-c-bg);
   font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html.dark .home {
-  --home-accent: #ff9a76;
-  --home-accent-2: #a998ff;
+  --home-accent: #4ade80;
+  --home-accent-2: #22c55e;
   --home-surface: rgba(18, 18, 18, 0.74);
   --home-surface-strong: rgba(24, 24, 24, 0.94);
   --home-border: rgba(255, 255, 255, 0.12);
@@ -418,8 +418,8 @@ html.dark .home {
   inset: -32% -18% auto;
   height: 78%;
   background:
-    radial-gradient(ellipse at 35% 30%, rgba(255, 122, 69, 0.18), transparent 56%),
-    radial-gradient(ellipse at 66% 20%, rgba(124, 92, 255, 0.15), transparent 52%),
+    radial-gradient(ellipse at 35% 30%, rgba(22, 163, 74, 0.18), transparent 56%),
+    radial-gradient(ellipse at 66% 20%, rgba(34, 197, 94, 0.15), transparent 52%),
     radial-gradient(ellipse at 50% 50%, var(--vp-c-brand-soft), transparent 64%);
   filter: blur(4px);
   opacity: 0.95;
@@ -544,7 +544,7 @@ html.dark .home {
   height: 8px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--home-accent), var(--home-accent-2));
-  box-shadow: 0 0 0 6px rgba(255, 122, 69, 0.12);
+  box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.12);
 }
 
 .brand-lockup {
@@ -736,7 +736,7 @@ html.dark .action-button.primary:hover {
 
 .action-button.secondary:hover {
   color: var(--vp-c-text-1);
-  border-color: rgba(255, 122, 69, 0.52);
+  border-color: rgba(22, 163, 74, 0.52);
   transform: translateY(-3px) scale(1.02);
   box-shadow: var(--home-soft-shadow);
 }
@@ -765,7 +765,7 @@ html.dark .action-button.primary:hover {
 
 .hero-feature:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 122, 69, 0.5);
+  border-color: rgba(22, 163, 74, 0.5);
   box-shadow: var(--home-soft-shadow);
 }
 
@@ -778,7 +778,7 @@ html.dark .action-button.primary:hover {
   flex: 0 0 auto;
   border-radius: 12px;
   color: var(--vp-c-text-1);
-  background: linear-gradient(135deg, rgba(255, 122, 69, 0.16), rgba(124, 92, 255, 0.14));
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.16), rgba(34, 197, 94, 0.14));
 }
 
 .hero-feature-icon :deep(svg) {
@@ -830,8 +830,8 @@ html.dark .hero-preview:hover .preview-shell {
   z-index: -1;
   border-radius: inherit;
   background:
-    radial-gradient(circle at 18% 8%, rgba(255, 122, 69, 0.16), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(124, 92, 255, 0.14), transparent 30%);
+    radial-gradient(circle at 18% 8%, rgba(22, 163, 74, 0.16), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(34, 197, 94, 0.14), transparent 30%);
 }
 
 .preview-toolbar {
@@ -854,9 +854,9 @@ html.dark .hero-preview:hover .preview-shell {
   background: var(--vp-c-divider);
 }
 
-.window-dots span:nth-child(1) { background: #ff7a45; }
-.window-dots span:nth-child(2) { background: #f5b84b; }
-.window-dots span:nth-child(3) { background: #62c078; }
+.window-dots span:nth-child(1) { background: #ff5f57; }
+.window-dots span:nth-child(2) { background: #febc2e; }
+.window-dots span:nth-child(3) { background: #28c840; }
 
 .preview-title {
   color: var(--vp-c-text-1);
@@ -919,9 +919,9 @@ html.dark .hero-preview:hover .preview-shell {
 }
 
 .preview-tags span:first-child {
-  border-color: rgba(255, 122, 69, 0.36);
+  border-color: rgba(22, 163, 74, 0.36);
   color: var(--vp-c-text-1);
-  background: rgba(255, 122, 69, 0.12);
+  background: rgba(22, 163, 74, 0.12);
 }
 
 .preview-grid {
@@ -942,7 +942,7 @@ html.dark .hero-preview:hover .preview-shell {
   border-radius: 18px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(255, 122, 69, 0.13), rgba(124, 92, 255, 0.09)),
+    linear-gradient(135deg, rgba(22, 163, 74, 0.13), rgba(34, 197, 94, 0.09)),
     var(--vp-c-bg);
   opacity: 0;
   transform: translateY(18px);
@@ -1141,8 +1141,8 @@ html.dark .hero-preview:hover .preview-shell {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 0%, rgba(255, 122, 69, 0.18), transparent 34%),
-    radial-gradient(circle at 100% 12%, rgba(124, 92, 255, 0.13), transparent 28%);
+    radial-gradient(circle at 18% 0%, rgba(22, 163, 74, 0.18), transparent 34%),
+    radial-gradient(circle at 100% 12%, rgba(34, 197, 94, 0.13), transparent 28%);
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -1152,7 +1152,7 @@ html.dark .hero-preview:hover .preview-shell {
 }
 
 .feature-card:hover {
-  border-color: rgba(255, 122, 69, 0.46);
+  border-color: rgba(22, 163, 74, 0.46);
   transform: translateY(-6px);
   box-shadow: var(--home-soft-shadow);
 }
@@ -1181,7 +1181,7 @@ html.dark .hero-preview:hover .preview-shell {
   position: absolute;
   inset: 0;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(255, 122, 69, 0.18), rgba(124, 92, 255, 0.14));
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.18), rgba(34, 197, 94, 0.14));
   transform: rotate(-6deg);
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
@@ -1343,8 +1343,8 @@ html.dark .hero-preview:hover .preview-shell {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 122, 69, 0.1), transparent 28%),
-    radial-gradient(circle at 82% 30%, rgba(124, 92, 255, 0.08), transparent 28%);
+    radial-gradient(circle at 20% 30%, rgba(22, 163, 74, 0.1), transparent 28%),
+    radial-gradient(circle at 82% 30%, rgba(34, 197, 94, 0.08), transparent 28%);
   pointer-events: none;
 }
 
