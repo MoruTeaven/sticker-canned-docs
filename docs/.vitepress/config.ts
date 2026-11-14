@@ -11,6 +11,10 @@ export default defineConfig({
   appearance: true,
   themeConfig: {
     logo: '/logo.png',
+    colors: {
+      primary: '#ff5a3c',
+      primaryDark: '#e8452a'
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: '使用指南', link: '/guide' },

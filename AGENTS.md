@@ -3,6 +3,9 @@
 ## 近期更新
 
 ### 2026-11-14
+- 视觉风格对齐已上线的网页版（app.sticker.moruteaven.com 的暖色贴纸风：奶油底 + 点阵、3px 描边 + 硬偏移阴影、tomato/sun/mint/sky/pink 五色板、ZCOOL KuaiLe 标题字体栈）
+- 全站品牌色通过 themeConfig.colors 切换为网页版番茄红 #ff5a3c（文档页与首页统一）
+- 暗色模式沿用网页版深色方案：暖黑底 + 浅奶油描边
 - 域名定位调整：sticker.moruteaven.com 保持为产品主站，网页版使用 app.sticker.moruteaven.com 子域名
 - 首页改版为产品主站：网页版入口升为主操作，新增多端矩阵（Web 版 / uTools 插件）与文档导航区
 - 新增 /download 客户端下载页与 /changelog 更新日志页（挂载 greencandy 组件，数据沿用 config.ts 既有配置）
