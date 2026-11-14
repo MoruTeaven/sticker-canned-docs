@@ -72,7 +72,7 @@ export default defineConfig({
     externalRedirect: {
       enable: true,
       countdown: 5,
-      skipDomains: []
+      skipDomains: ['moruteaven.com']
     },
     search: {
       provider: 'local',

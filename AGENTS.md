@@ -3,6 +3,7 @@
 ## 近期更新
 
 ### 2026-11-14
+- 外链确认页白名单加入 moruteaven.com（覆盖全部自有子域，app.sticker.moruteaven.com 直跳）
 - 视觉风格对齐已上线的网页版（app.sticker.moruteaven.com 的暖色贴纸风：奶油底 + 点阵、3px 描边 + 硬偏移阴影、tomato/sun/mint/sky/pink 五色板、ZCOOL KuaiLe 标题字体栈）
 - 全站品牌色通过 themeConfig.colors 切换为网页版番茄红 #ff5a3c（文档页与首页统一）
 - 暗色模式沿用网页版深色方案：暖黑底 + 浅奶油描边
