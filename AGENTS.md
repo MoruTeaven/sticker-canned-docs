@@ -2,6 +2,13 @@
 
 ## 近期更新
 
+### 2026-11-14
+- 域名定位调整：sticker.moruteaven.com 保持为产品主站，网页版使用 app.sticker.moruteaven.com 子域名
+- 首页改版为产品主站：网页版入口升为主操作，新增多端矩阵（Web 版 / uTools 插件）与文档导航区
+- 新增 /download 客户端下载页与 /changelog 更新日志页（挂载 greencandy 组件，数据沿用 config.ts 既有配置）
+- 顶部导航补全：下载、更新日志、网页版入口
+- 恢复磁盘零化事故：源码从 GitHub 远端重建工作树与 git 仓库（原 .git 索引与 pack 损坏已更换），依赖经 D 盘 junction 重装以规避 F 盘空间不足
+
 ### 2026-08-04
 - 从 Vercel 部署切换到 GitHub Pages 部署
 - 仓库地址变更为 https://github.com/MoruTeaven/sticker-canned-docs

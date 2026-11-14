@@ -58,6 +58,8 @@ npm run preview
 │   │   └── faq.md
 │   ├── public/
 │   │   └── CNAME              # GitHub Pages 自定义域名
+│   ├── download.md            # 客户端下载页（挂载 DownloadPage）
+│   ├── changelog.md           # 更新日志页（挂载 ChangelogPage）
 │   └── index.md               # 首页
 ├── .github/
 │   └── workflows/
@@ -69,7 +71,8 @@ npm run preview
 
 首页使用自定义 Vue 组件 `Home.vue`，具有以下特点：
 
-- 黑白配色设计
+- 绿沈之饴（greencandy）主题配色
+- 产品主站式布局：网页版入口、多端矩阵、文档导航
 - 流畅的加载动画
 - 响应式布局
 - 暗色模式支持

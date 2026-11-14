@@ -5,7 +5,7 @@ type ThemeConfig = DefaultTheme.Config & GreenCandyThemeConfig
 
 export default defineConfig({
   title: '表情罐头',
-  description: '一个 uTools 表情包管理插件',
+  description: '表情罐头 · 多端表情包管理平台',
   lang: 'zh-CN',
   base: '/',
   appearance: true,
@@ -14,6 +14,9 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '使用指南', link: '/guide' },
+      { text: '下载', link: '/download' },
+      { text: '更新日志', link: '/changelog' },
+      { text: '网页版', link: 'https://app.sticker.moruteaven.com/' }
     ],
     socialLinks: [
       { 
