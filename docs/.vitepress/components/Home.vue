@@ -12,6 +12,8 @@ onMounted(() => {
 
 const WEB_APP_URL = 'https://app.sticker.moruteaven.com/'
 const PLUGIN_URL = 'https://www.u-tools.cn/plugins/detail/%E8%A1%A8%E6%83%85%E7%BD%90%E5%A4%B4/'
+const SEARCH_URL = 'https://app.sticker.moruteaven.com/search/?q='
+const searchUrl = (q: string) => SEARCH_URL + encodeURIComponent(q)
 
 // ==== 索引业务数据（构建时快照，来自 api.sticker.moruteaven.com）====
 const stats = computed(() => latestData.stats)
@@ -55,7 +57,9 @@ const heroHighlights = [
   }
 ]
 
-const previewTags = ['收藏', '摸鱼', '开会', '猫咪', '回复']
+const previewTags = ['熊猫头', '开心', '猫咪', '迷茫', '比心', '斗图']
+
+const FLAME_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>`
 
 const platforms = [
   {
@@ -268,20 +272,36 @@ const statCards = computed(() => {
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                <span>app.sticker.moruteaven.com</span>
+                <span>app.sticker.moruteaven.com/search</span>
               </div>
             </div>
 
-            <div class="preview-search">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <form class="preview-search" :action="SEARCH_URL" method="get" target="_blank" rel="noreferrer">
+              <svg class="preview-search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.3-4.3"></path>
               </svg>
-              <span>搜索表情包，如：熊猫头 / 开心 / 迷茫…</span>
-            </div>
+              <input
+                class="preview-search-input"
+                type="search"
+                name="q"
+                placeholder="搜索表情包，如：熊猫头 / 开心 / 迷茫…"
+                aria-label="搜索表情包"
+              >
+              <button class="preview-search-btn" type="submit">搜一搜</button>
+            </form>
 
             <div class="preview-tags">
-              <span v-for="tag in previewTags" :key="tag">{{ tag }}</span>
+              <a
+                class="preview-tag"
+                v-for="tag in previewTags"
+                :key="tag"
+                :href="searchUrl(tag)"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span class="preview-tag-flame" v-html="FLAME_ICON"></span>{{ tag }}
+              </a>
             </div>
 
             <div class="preview-grid">
@@ -319,6 +339,79 @@ const statCards = computed(() => {
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="wall-section">
+      <div class="stats-inline">
+        <div class="stats-container">
+          <div
+            class="sticker-card stat-item"
+            v-for="card in statCards"
+            :key="card.label"
+            :style="{ '--accent': card.accent }"
+          >
+            <span class="card-topline" aria-hidden="true"></span>
+            <span class="stat-value">{{ card.value }}</span>
+            <span class="stat-label">{{ card.label }}</span>
+          </div>
+        </div>
+        <p class="stats-note" v-if="fetchedDate">索引数据更新于 {{ fetchedDate }} · 来自 api.sticker.moruteaven.com</p>
+      </div>
+
+      <div class="section-header">
+        <span class="section-kicker">Live Index</span>
+        <h2 class="section-title">最新收录，<em>实时索引</em></h2>
+        <p class="section-description">
+          罐头持续搜罗全网表情包，{{ wallItems.length ? `这里是最新入库的 ${wallItems.length} 张。` : '数据更新中，稍后再来看。' }}
+          <template v-if="hasStats">全部 {{ formatNumber(stats!.images) }} 张都能在网页版里搜到。</template>
+        </p>
+      </div>
+
+      <div class="wall-grid" v-if="wallItems.length">
+        <figure
+          class="sticker-card wall-card"
+          v-for="item in wallItems"
+          :key="item.id"
+        >
+          <span class="card-topline" aria-hidden="true"></span>
+          <div class="wall-thumb">
+            <img
+              :src="item.thumb_url"
+              :alt="pickKeyword(item)"
+              :width="item.width"
+              :height="item.height"
+              loading="lazy"
+            >
+          </div>
+          <figcaption class="wall-meta">
+            <span class="wall-keyword">{{ pickKeyword(item) }}</span>
+            <span class="wall-source">{{ item.source_site }}</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="wall-empty" v-else>
+        <p>索引数据更新中，稍后再来看。</p>
+      </div>
+
+      <div class="wall-actions">
+        <a :href="WEB_APP_URL" class="action-button primary" v-if="hasStats">
+          去网页版搜索全部 {{ formatNumber(stats!.images) }} 张
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a :href="WEB_APP_URL" class="action-button primary" v-else>
+          打开网页版
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+      <p class="wall-copyright">
+        图片版权归源站 / 原作者所有；表情罐头仅提供索引与链接，点击结果将跳转至源站页面。
+      </p>
     </section>
 
     <section class="platforms">
@@ -406,81 +499,6 @@ const statCards = computed(() => {
           </svg>
         </a>
       </div>
-    </section>
-
-    <section class="stats-section">
-      <div class="stats-shell">
-        <div class="stats-container">
-          <div
-            class="sticker-card stat-item"
-            v-for="card in statCards"
-            :key="card.label"
-            :style="{ '--accent': card.accent }"
-          >
-            <span class="card-topline" aria-hidden="true"></span>
-            <span class="stat-value">{{ card.value }}</span>
-            <span class="stat-label">{{ card.label }}</span>
-          </div>
-        </div>
-        <p class="stats-note" v-if="fetchedDate">索引数据更新于 {{ fetchedDate }} · 来自 api.sticker.moruteaven.com</p>
-      </div>
-    </section>
-
-    <section class="wall-section">
-      <div class="section-header">
-        <span class="section-kicker">Live Index</span>
-        <h2 class="section-title">最新收录，<em>实时索引</em></h2>
-        <p class="section-description">
-          罐头持续搜罗全网表情包，{{ wallItems.length ? `这里是最新入库的 ${wallItems.length} 张。` : '数据更新中，稍后再来看。' }}
-          <template v-if="hasStats">全部 {{ formatNumber(stats!.images) }} 张都能在网页版里搜到。</template>
-        </p>
-      </div>
-
-      <div class="wall-grid" v-if="wallItems.length">
-        <figure
-          class="sticker-card wall-card"
-          v-for="item in wallItems"
-          :key="item.id"
-        >
-          <span class="card-topline" aria-hidden="true"></span>
-          <div class="wall-thumb">
-            <img
-              :src="item.thumb_url"
-              :alt="pickKeyword(item)"
-              :width="item.width"
-              :height="item.height"
-              loading="lazy"
-            >
-          </div>
-          <figcaption class="wall-meta">
-            <span class="wall-keyword">{{ pickKeyword(item) }}</span>
-            <span class="wall-source">{{ item.source_site }}</span>
-          </figcaption>
-        </figure>
-      </div>
-      <div class="wall-empty" v-else>
-        <p>索引数据更新中，稍后再来看。</p>
-      </div>
-
-      <div class="wall-actions">
-        <a :href="WEB_APP_URL" class="action-button primary" v-if="hasStats">
-          去网页版搜索全部 {{ formatNumber(stats!.images) }} 张
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a :href="WEB_APP_URL" class="action-button primary" v-else>
-          打开网页版
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </div>
-      <p class="wall-copyright">
-        图片版权归源站 / 原作者所有；表情罐头仅提供索引与链接，点击结果将跳转至源站页面。
-      </p>
     </section>
 
     <section class="footer-section">
@@ -831,17 +849,64 @@ const statCards = computed(() => {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 16px;
+  padding: 7px 7px 7px 14px;
   border-radius: 999px;
   background: var(--tk-paper);
   border: var(--tk-bd);
   box-shadow: 3px 3px 0 var(--tk-line);
-  color: var(--tk-muted);
-  font-size: 14px;
 }
 
-.preview-search svg {
+.preview-search:focus-within {
+  outline: 3px solid var(--tk-sun);
+  outline-offset: 2px;
+}
+
+.preview-search-icon {
+  flex-shrink: 0;
   color: var(--tk-tomato);
+}
+
+.preview-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: var(--tk-ink);
+  outline: none;
+}
+
+.preview-search-input::placeholder {
+  color: var(--tk-muted);
+}
+
+.preview-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.preview-search-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--tk-tomato);
+  border: var(--tk-bd2);
+  box-shadow: 2px 2px 0 var(--tk-line);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.preview-search-btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--tk-line);
+}
+
+.preview-search-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
 }
 
 .preview-tags {
@@ -851,8 +916,11 @@ const statCards = computed(() => {
   margin-top: 16px;
 }
 
-.preview-tags span {
-  padding: 5px 14px;
+.preview-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 13px;
   border-radius: 999px;
   font-size: 12.5px;
   font-weight: 700;
@@ -860,10 +928,20 @@ const statCards = computed(() => {
   color: var(--tk-ink);
   border: var(--tk-bd2);
   box-shadow: 2px 2px 0 var(--tk-line);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 
-.preview-tags span:first-child {
+.preview-tag:hover {
   background: var(--tk-sun);
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--tk-line);
+}
+
+.preview-tag-flame {
+  display: grid;
+  place-items: center;
+  color: var(--tk-tomato);
 }
 
 .preview-grid {
@@ -1068,7 +1146,7 @@ const statCards = computed(() => {
 /* ============ 多端矩阵 ============ */
 
 .platforms {
-  padding: 72px 24px;
+  padding: 8px 24px 72px;
 }
 
 .platform-grid {
@@ -1299,18 +1377,24 @@ const statCards = computed(() => {
   padding: 40px 24px 80px;
 }
 
-.stats-shell {
-  max-width: 860px;
-  margin: 0 auto;
+/* ============ Live Index（统计 + 收录墙） ============ */
+
+.wall-section {
+  padding: 8px 24px 72px;
 }
 
-.stats-container {
+.stats-inline {
+  max-width: 860px;
+  margin: 0 auto 56px;
+}
+
+.stats-inline .stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
-.stat-item {
+.stats-inline .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1320,7 +1404,7 @@ const statCards = computed(() => {
   text-align: center;
 }
 
-.stat-value {
+.stats-inline .stat-value {
   font-family: var(--tk-f-num);
   font-size: clamp(1.9rem, 3.6vw, 2.6rem);
   font-weight: 700;
@@ -1329,7 +1413,7 @@ const statCards = computed(() => {
   letter-spacing: 0.01em;
 }
 
-.stat-label {
+.stats-inline .stat-label {
   font-size: 13.5px;
   font-weight: 700;
   line-height: 1.6;
@@ -1341,12 +1425,6 @@ const statCards = computed(() => {
   text-align: center;
   font-size: 12px;
   color: var(--tk-muted);
-}
-
-/* ============ 最新收录墙 ============ */
-
-.wall-section {
-  padding: 40px 24px 80px;
 }
 
 .wall-grid {
