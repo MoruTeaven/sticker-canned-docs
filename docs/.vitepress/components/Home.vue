@@ -69,7 +69,7 @@ const heroHighlights = [
   }
 ]
 
-const previewTags = ['熊猫头', '开心', '猫咪', '迷茫', '比心', '斗图']
+const previewTags = ['熊猫头', '开心', '猫咪', '迷茫', '比心']
 
 const FLAME_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>`
 
@@ -901,12 +901,15 @@ const docCards = [
 
 .preview-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 9px;
   margin-top: 16px;
 }
 
 .preview-tag {
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -914,6 +917,7 @@ const docCards = [
   border-radius: 999px;
   font-size: 12.5px;
   font-weight: 700;
+  white-space: nowrap;
   background: var(--tk-paper);
   color: var(--tk-ink);
   border: var(--tk-bd2);
@@ -1595,6 +1599,17 @@ const docCards = [
 
   .preview-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .preview-tag {
+    gap: 3px;
+    padding: 5px 6px;
+    font-size: 11px;
+  }
+
+  .preview-tag-flame svg {
+    width: 11px;
+    height: 11px;
   }
 
   .sticker-can { width: 44px; height: 44px; left: 2%; }
