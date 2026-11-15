@@ -13,7 +13,9 @@ onMounted(() => {
 const WEB_APP_URL = 'https://app.sticker.moruteaven.com/'
 const PLUGIN_URL = 'https://www.u-tools.cn/plugins/detail/%E8%A1%A8%E6%83%85%E7%BD%90%E5%A4%B4/'
 const SEARCH_URL = 'https://app.sticker.moruteaven.com/search/?q='
+const DETAIL_URL = 'https://app.sticker.moruteaven.com/i/'
 const searchUrl = (q: string) => SEARCH_URL + encodeURIComponent(q)
+const detailUrl = (id: string) => DETAIL_URL + id
 
 // ==== 索引业务数据（构建时快照，来自 api.sticker.moruteaven.com）====
 const stats = computed(() => latestData.stats)
@@ -351,10 +353,12 @@ const docCards = [
       </div>
 
       <div class="wall-grid" v-if="wallItems.length">
-        <div
+        <a
           class="wall-card"
           v-for="item in wallItems"
           :key="item.id"
+          :href="detailUrl(item.id)"
+          :aria-label="`查看表情详情：${pickKeyword(item)}`"
         >
           <div class="wall-imgbox">
             <img
@@ -368,7 +372,7 @@ const docCards = [
               <i :style="{ '--dotc': sourceDot(item.source_site) }"></i>{{ item.source_site }}
             </span>
           </div>
-        </div>
+        </a>
       </div>
       <div class="wall-empty" v-else>
         <p>索引数据更新中，稍后再来看。</p>
@@ -1383,12 +1387,20 @@ const docCards = [
   overflow: hidden;
   break-inside: avoid;
   vertical-align: top;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .wall-card:hover {
   transform: translate(2px, 2px);
   box-shadow: 3px 3px 0 var(--tk-line);
+}
+
+.wall-card:focus-visible {
+  outline: 3px solid var(--tk-sun);
+  outline-offset: 3px;
 }
 
 .wall-imgbox {
