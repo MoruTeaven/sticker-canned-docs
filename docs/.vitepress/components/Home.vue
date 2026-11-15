@@ -11,7 +11,7 @@ onMounted(() => {
 })
 
 const WEB_APP_URL = 'https://app.sticker.moruteaven.com/'
-const PLUGIN_URL = 'https://www.u-tools.cn/plugins/detail/%E8%A1%A8%E6%83%85%E7%BD%90%E5%A4%B4/'
+const DOWNLOAD_URL = 'https://sticker.moruteaven.com/download.html'
 const SEARCH_URL = 'https://app.sticker.moruteaven.com/search/?q='
 const DETAIL_URL = 'https://app.sticker.moruteaven.com/i/'
 const searchUrl = (q: string) => SEARCH_URL + encodeURIComponent(q)
@@ -96,8 +96,8 @@ const platforms = [
     badge: '',
     title: 'uTools 插件',
     description: 'Alt + Space 一键呼出，关键词即刻定位表情并发送，深度集成 uTools 全局搜索与超级面板。',
-    linkText: '前往插件商店',
-    link: PLUGIN_URL,
+    linkText: '下载客户端',
+    link: DOWNLOAD_URL,
     external: true
   }
 ]
@@ -243,13 +243,13 @@ const docCards = [
               </svg>
               打开网页版
             </a>
-            <a :href="PLUGIN_URL" target="_blank" rel="noreferrer" class="action-button secondary">
+            <a :href="DOWNLOAD_URL" target="_blank" rel="noreferrer" class="action-button secondary">
               <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
-              下载 uTools 插件
+              下载客户端
             </a>
           </div>
 
@@ -497,7 +497,7 @@ const docCards = [
         <div class="footer-links">
           <a :href="WEB_APP_URL">打开网页版</a>
           <span class="divider">|</span>
-          <a :href="PLUGIN_URL" target="_blank" rel="noreferrer">下载插件</a>
+          <a :href="DOWNLOAD_URL" target="_blank" rel="noreferrer">下载客户端</a>
           <span class="divider">|</span>
           <a href="/guide/getting-started">使用文档</a>
           <span class="divider">|</span>
