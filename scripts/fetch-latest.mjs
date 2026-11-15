@@ -21,11 +21,15 @@ async function getJson(url) {
 }
 
 function pickItem(it) {
+  // 兼容 /latest 的新旧契约：新版为 name 字符串，旧版为 keywords 数组
+  const keywords = Array.isArray(it.keywords) && it.keywords.length
+    ? it.keywords.slice(0, 2)
+    : (typeof it.name === 'string' && it.name.trim() ? [it.name.trim()] : [])
   return {
     id: it.id,
     thumb_url: it.thumb_url,
     source_site: it.source_site,
-    keywords: Array.isArray(it.keywords) ? it.keywords.slice(0, 2) : [],
+    keywords,
     animated: it.animated === true,
     width: it.width || 240,
     height: it.height || 240

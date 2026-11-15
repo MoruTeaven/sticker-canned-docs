@@ -20,8 +20,9 @@ const detailUrl = (id: string) => DETAIL_URL + id
 // ==== 索引业务数据（构建时快照，来自 api.sticker.moruteaven.com）====
 const stats = computed(() => latestData.stats)
 const allItems = computed<any[]>(() => latestData.items ?? [])
-const heroPreviewImgs = computed(() => allItems.value.slice(0, 6))
-const wallItems = computed(() => allItems.value.slice(0, 14))
+// 两组表情不重叠：预览窗取 14 之后的一段，收录墙取最前的 14 张
+const wallItems = computed<any[]>(() => allItems.value.slice(0, 14))
+const heroPreviewImgs = computed<any[]>(() => allItems.value.slice(14, 20))
 const hasStats = computed(() => !!stats.value && typeof stats.value.images === 'number')
 const formatNumber = (n: number) => new Intl.NumberFormat('zh-CN').format(n)
 const pickKeyword = (it: any) => (Array.isArray(it.keywords) && it.keywords[0]) || '表情'
@@ -306,10 +307,12 @@ const docCards = [
             </div>
 
             <div class="preview-grid">
-              <div
+              <a
                 class="preview-card"
                 v-for="(item, index) in heroPreviewImgs"
                 :key="item.id"
+                :href="detailUrl(item.id)"
+                :aria-label="`查看表情详情：${pickKeyword(item)}`"
                 :style="{ animationDelay: `${index * 0.06}s` }"
               >
                 <img
@@ -321,7 +324,7 @@ const docCards = [
                   loading="lazy"
                 >
                 <span class="preview-card-title">{{ pickKeyword(item) }}</span>
-              </div>
+              </a>
             </div>
 
             <div class="preview-status">
@@ -947,8 +950,22 @@ const docCards = [
   display: flex;
   flex-direction: column;
   gap: 5px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   opacity: 0;
   animation: card-in 0.5s ease forwards;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--tk-tomato);
+}
+
+.preview-card:focus-visible {
+  outline: 3px solid var(--tk-sun);
+  outline-offset: 2px;
 }
 
 @keyframes card-in {
