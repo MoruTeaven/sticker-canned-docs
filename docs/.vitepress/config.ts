@@ -91,7 +91,7 @@ export default defineConfig({
             {
               name: 'uTools 插件包',
               system: 'uTools 6.0+',
-              links: [{ text: '下载 upx', link: '/downloads/app-utools.upx', type: 'primary' }]
+              links: [{ text: '前往 uTools 下载', link: 'https://www.u-tools.cn/plugins/detail/%E8%A1%A8%E6%83%85%E7%BD%90%E5%A4%B4/', type: 'primary' }]
             }
           ]
         }
