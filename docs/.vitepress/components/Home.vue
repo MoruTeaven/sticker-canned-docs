@@ -21,10 +21,6 @@ const allItems = computed<any[]>(() => latestData.items ?? [])
 const heroPreviewImgs = computed(() => allItems.value.slice(0, 6))
 const wallItems = computed(() => allItems.value.slice(0, 14))
 const hasStats = computed(() => !!stats.value && typeof stats.value.images === 'number')
-const fetchedDate = computed(() => {
-  if (!latestData.fetchedAt) return ''
-  return new Date(latestData.fetchedAt).toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })
-})
 const formatNumber = (n: number) => new Intl.NumberFormat('zh-CN').format(n)
 const pickKeyword = (it: any) => (Array.isArray(it.keywords) && it.keywords[0]) || '表情'
 
@@ -178,16 +174,6 @@ const docCards = [
     link: '/changelog'
   }
 ]
-
-const statCards = computed(() => {
-  if (!hasStats.value) return []
-  const sources = stats.value!.sources?.length ?? 0
-  return [
-    { accent: 'var(--tk-tomato)', value: formatNumber(stats.value!.images), label: '已收录表情' },
-    { accent: 'var(--tk-mint)', value: String(sources), label: '来源站点' },
-    { accent: 'var(--tk-sky)', value: '持续更新', label: '索引状态' }
-  ]
-})
 </script>
 
 <template>
@@ -342,22 +328,6 @@ const statCards = computed(() => {
     </section>
 
     <section class="wall-section">
-      <div class="stats-inline">
-        <div class="stats-container">
-          <div
-            class="sticker-card stat-item"
-            v-for="card in statCards"
-            :key="card.label"
-            :style="{ '--accent': card.accent }"
-          >
-            <span class="card-topline" aria-hidden="true"></span>
-            <span class="stat-value">{{ card.value }}</span>
-            <span class="stat-label">{{ card.label }}</span>
-          </div>
-        </div>
-        <p class="stats-note" v-if="fetchedDate">索引数据更新于 {{ fetchedDate }} · 来自 api.sticker.moruteaven.com</p>
-      </div>
-
       <div class="section-header">
         <span class="section-kicker">Live Index</span>
         <h2 class="section-title">最新收录，<em>实时索引</em></h2>
@@ -1371,60 +1341,14 @@ const statCards = computed(() => {
   color: var(--tk-tomato);
 }
 
-/* ============ 理念 ============ */
-
-.stats-section {
-  padding: 40px 24px 80px;
-}
-
-/* ============ Live Index（统计 + 收录墙） ============ */
+/* ============ Live Index（收录墙） ============ */
 
 .wall-section {
   padding: 8px 24px 72px;
 }
 
-.stats-inline {
-  max-width: 860px;
-  margin: 0 auto 56px;
-}
-
-.stats-inline .stats-container {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-}
-
-.stats-inline .stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 30px 22px 24px;
-  text-align: center;
-}
-
-.stats-inline .stat-value {
-  font-family: var(--tk-f-num);
-  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--tk-ink);
-  letter-spacing: 0.01em;
-}
-
-.stats-inline .stat-label {
-  font-size: 13.5px;
-  font-weight: 700;
-  line-height: 1.6;
-  color: var(--tk-muted);
-}
-
-.stats-note {
-  margin: 18px 0 0;
-  text-align: center;
-  font-size: 12px;
-  color: var(--tk-muted);
+.wall-section .section-header {
+  margin-bottom: 44px;
 }
 
 .wall-grid {
@@ -1627,8 +1551,7 @@ const statCards = computed(() => {
   .sticker-star { display: none; }
 
   .platform-grid,
-  .docs-grid,
-  .stats-container {
+  .docs-grid {
     grid-template-columns: 1fr;
   }
 

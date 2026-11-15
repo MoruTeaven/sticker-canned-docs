@@ -3,6 +3,7 @@
 ## 近期更新
 
 ### 2026-11-15
+- 移除首页三张收录统计卡（statCards/fetchedDate 计算属性、stats-inline DOM 与样式一并删除）；收录墙描述与 CTA 仍引用 /stats 的 images 数字
 - 首页搜索框做真：表单 GET 提交到 app.sticker.moruteaven.com/search/?q=（自有域已在白名单，无确认页），热词胶囊带火苗图标可点击搜索
 - 「最新收录」区（统计三卡 + 14 张表情墙）上移到多端矩阵之前，成为首屏下滑第一内容区；统计卡并入 wall-section（stats-inline）
 - 首页接入索引实时数据：构建前经 scripts/fetch-latest.mjs 拉 /latest + /stats 烘进静态页（快照 docs/.vitepress/data/latest.json 随仓库提交兜底），接口异常沿用旧快照不阻塞部署
