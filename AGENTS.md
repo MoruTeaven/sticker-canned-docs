@@ -3,6 +3,7 @@
 ## 近期更新
 
 ### 2026-11-15
+- 「最新收录」卡片 UI 对齐网页版实测样式：CSS 多列瀑布流（column-count:5 / column-gap:16px，图片按原始比例自然撑开不拉伸）、纯图卡片（3px 描边 + 5px 硬阴影 + 18px 圆角）、来源药丸绝对定位叠图片左下角（白底 + 彩色圆点，按 source_site 映射五色板）；移除关键词文字行、棋盘格底、彩色顶条
 - 移除首页三张收录统计卡（statCards/fetchedDate 计算属性、stats-inline DOM 与样式一并删除）；收录墙描述与 CTA 仍引用 /stats 的 images 数字
 - 首页搜索框做真：表单 GET 提交到 app.sticker.moruteaven.com/search/?q=（自有域已在白名单，无确认页），热词胶囊带火苗图标可点击搜索
 - 「最新收录」区（统计三卡 + 14 张表情墙）上移到多端矩阵之前，成为首屏下滑第一内容区；统计卡并入 wall-section（stats-inline）

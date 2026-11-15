@@ -23,6 +23,19 @@ const wallItems = computed(() => allItems.value.slice(0, 14))
 const hasStats = computed(() => !!stats.value && typeof stats.value.images === 'number')
 const formatNumber = (n: number) => new Intl.NumberFormat('zh-CN').format(n)
 const pickKeyword = (it: any) => (Array.isArray(it.keywords) && it.keywords[0]) || '表情'
+// 来源站点 → 圆点色（与网页版一致，五色板按站点稳定分配）
+const SOURCE_DOTS: Record<string, string> = {
+  zhuangbi: '#4D8DFF',
+  adoutu: '#FF5A3C',
+  pdan: '#22C7A9',
+  jandan: '#FFC83D',
+  dogetu: '#FF8FB1',
+  doutupk: '#4D8DFF',
+  memecub: '#22C7A9',
+  soogif: '#FFC83D',
+  synthetic: '#FF5A3C'
+}
+const sourceDot = (site: string) => SOURCE_DOTS[site] || '#4D8DFF'
 
 const heroHighlights = [
   {
@@ -338,13 +351,12 @@ const docCards = [
       </div>
 
       <div class="wall-grid" v-if="wallItems.length">
-        <figure
-          class="sticker-card wall-card"
+        <div
+          class="wall-card"
           v-for="item in wallItems"
           :key="item.id"
         >
-          <span class="card-topline" aria-hidden="true"></span>
-          <div class="wall-thumb">
+          <div class="wall-imgbox">
             <img
               :src="item.thumb_url"
               :alt="pickKeyword(item)"
@@ -352,12 +364,11 @@ const docCards = [
               :height="item.height"
               loading="lazy"
             >
+            <span class="wall-tag">
+              <i :style="{ '--dotc': sourceDot(item.source_site) }"></i>{{ item.source_site }}
+            </span>
           </div>
-          <figcaption class="wall-meta">
-            <span class="wall-keyword">{{ pickKeyword(item) }}</span>
-            <span class="wall-source">{{ item.source_site }}</span>
-          </figcaption>
-        </figure>
+        </div>
       </div>
       <div class="wall-empty" v-else>
         <p>索引数据更新中，稍后再来看。</p>
@@ -1351,70 +1362,79 @@ const docCards = [
   margin-bottom: 44px;
 }
 
+/* 与网页版 .masonry 一致：CSS 多列瀑布流，图片按原始比例自然撑开 */
 .wall-grid {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 18px;
+  column-count: 5;
+  column-gap: 16px;
 }
 
+/* 卡片：与网页版 .card 一致 —— 纯图撑满 + 3px 描边 + 5px 硬偏移阴影 */
 .wall-card {
-  margin: 0;
-  min-width: 0;
-  padding: 12px 12px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.wall-thumb {
-  border-radius: 10px;
-  border: var(--tk-bd2);
-  background:
-    linear-gradient(45deg, var(--tk-soft) 25%, transparent 25%, transparent 75%, var(--tk-soft) 75%),
-    linear-gradient(45deg, var(--tk-soft) 25%, transparent 25%, transparent 75%, var(--tk-soft) 75%);
-  background-size: 14px 14px;
-  background-position: 0 0, 7px 7px;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  padding: 0;
+  border: 3px solid var(--tk-line);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 var(--tk-line);
   overflow: hidden;
+  break-inside: avoid;
+  vertical-align: top;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-.wall-thumb img {
+.wall-card:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--tk-line);
+}
+
+.wall-imgbox {
+  position: relative;
+  display: block;
+}
+
+/* 图片按原始宽高比自然撑开，与网页版一致（不拉伸、不裁切） */
+.wall-imgbox img {
   display: block;
   width: 100%;
-  max-width: 100%;
-  height: 150px;
-  object-fit: contain;
+  height: auto;
 }
 
-.wall-meta {
+/* 来源药丸：绝对定位叠在图片左下角，与网页版 .tag 一致 */
+.wall-tag {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.wall-keyword {
-  flex: 1;
-  min-width: 0;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--tk-ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.wall-source {
-  flex-shrink: 0;
-  padding: 2px 9px;
+  gap: 5px;
+  padding: 2px 9px 2px 7px;
+  border: 2px solid var(--tk-line);
   border-radius: 999px;
-  background: var(--tk-sun);
-  border: var(--tk-bd2);
-  font-family: var(--tk-f-num);
-  font-size: 10.5px;
-  font-weight: 700;
+  background: #ffffff;
+  box-shadow: 2px 2px 0 var(--tk-line);
+  font-size: 11px;
+  font-weight: 600;
   color: var(--tk-ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.wall-tag i {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--tk-line);
+  border-radius: 50%;
+  background: var(--dotc, #4d8dff);
+}
+
+/* 深色模式：卡片与药丸保留浅奶油描边（网页版深色同款反转） */
+.dark .wall-card {
+  background: #211d18;
 }
 
 .wall-actions {
@@ -1506,7 +1526,7 @@ const docCards = [
 
 @media (max-width: 1120px) {
   .wall-grid {
-    grid-template-columns: repeat(4, 1fr);
+    column-count: 4;
   }
 }
 
@@ -1556,12 +1576,8 @@ const docCards = [
   }
 
   .wall-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .wall-thumb img {
-    height: 110px;
+    column-count: 2;
+    column-gap: 14px;
   }
 }
 
