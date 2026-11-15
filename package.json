@@ -5,7 +5,8 @@
   "description": "表情罐头 for uTools 官方文档",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "fetch:data": "node scripts/fetch-latest.mjs",
+    "build": "node scripts/fetch-latest.mjs && vitepress build docs",
     "preview": "vitepress preview docs"
   },
   "devDependencies": {

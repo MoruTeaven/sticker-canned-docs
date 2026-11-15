@@ -2,6 +2,11 @@
 
 ## 近期更新
 
+### 2026-11-15
+- 首页接入索引实时数据：构建前经 scripts/fetch-latest.mjs 拉 /latest + /stats 烘进静态页（快照 docs/.vitepress/data/latest.json 随仓库提交兜底），接口异常沿用旧快照不阻塞部署
+- 新增收录规模统计卡（已收录/来源站点/索引状态，同 app 三卡布局）与「最新收录」14 张表情墙（含来源徽章与索引版权声明），删除原理念三卡区
+- 收录墙 grid 用 minmax(0,1fr) 防图片固有宽度撑爆容器
+
 ### 2026-11-14
 - 外链确认页白名单加入 moruteaven.com（覆盖全部自有子域，app.sticker.moruteaven.com 直跳）
 - 视觉风格对齐已上线的网页版（app.sticker.moruteaven.com 的暖色贴纸风：奶油底 + 点阵、3px 描边 + 硬偏移阴影、tomato/sun/mint/sky/pink 五色板、ZCOOL KuaiLe 标题字体栈）

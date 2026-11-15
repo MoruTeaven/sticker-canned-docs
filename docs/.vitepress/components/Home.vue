@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
+import latestData from '../data/latest.json'
 
 const isLoaded = ref(false)
 
@@ -11,6 +12,19 @@ onMounted(() => {
 
 const WEB_APP_URL = 'https://app.sticker.moruteaven.com/'
 const PLUGIN_URL = 'https://www.u-tools.cn/plugins/detail/%E8%A1%A8%E6%83%85%E7%BD%90%E5%A4%B4/'
+
+// ==== 索引业务数据（构建时快照，来自 api.sticker.moruteaven.com）====
+const stats = computed(() => latestData.stats)
+const allItems = computed<any[]>(() => latestData.items ?? [])
+const heroPreviewImgs = computed(() => allItems.value.slice(0, 6))
+const wallItems = computed(() => allItems.value.slice(0, 14))
+const hasStats = computed(() => !!stats.value && typeof stats.value.images === 'number')
+const fetchedDate = computed(() => {
+  if (!latestData.fetchedAt) return ''
+  return new Date(latestData.fetchedAt).toLocaleDateString('zh-CN', { month: 'long', day: 'numeric' })
+})
+const formatNumber = (n: number) => new Intl.NumberFormat('zh-CN').format(n)
+const pickKeyword = (it: any) => (Array.isArray(it.keywords) && it.keywords[0]) || '表情'
 
 const heroHighlights = [
   {
@@ -42,15 +56,6 @@ const heroHighlights = [
 ]
 
 const previewTags = ['收藏', '摸鱼', '开会', '猫咪', '回复']
-
-const previewItems = [
-  { title: '收到', desc: '确认回复' },
-  { title: '稍等', desc: '缓冲一下' },
-  { title: '在忙', desc: '快速说明' },
-  { title: '赞同', desc: '顺手表达' },
-  { title: '加油', desc: '鼓励一下' },
-  { title: '下班', desc: '今日收工' }
-]
 
 const platforms = [
   {
@@ -170,32 +175,15 @@ const docCards = [
   }
 ]
 
-const stats = [
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
-    </svg>`,
-    accent: 'var(--tk-tomato)',
-    title: '轻量高效',
-    label: '毫秒级呼出与检索，不拖慢聊天节奏'
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 6 9 17l-5-5"></path>
-    </svg>`,
-    accent: 'var(--tk-mint)',
-    title: '简单易用',
-    label: '零学习成本，打开就能找到想要的表情'
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-    </svg>`,
-    accent: 'var(--tk-sky)',
-    title: '安全可靠',
-    label: '数据归属清晰，本地与云端都由你掌控'
-  }
-]
+const statCards = computed(() => {
+  if (!hasStats.value) return []
+  const sources = stats.value!.sources?.length ?? 0
+  return [
+    { accent: 'var(--tk-tomato)', value: formatNumber(stats.value!.images), label: '已收录表情' },
+    { accent: 'var(--tk-mint)', value: String(sources), label: '来源站点' },
+    { accent: 'var(--tk-sky)', value: '持续更新', label: '索引状态' }
+  ]
+})
 </script>
 
 <template>
@@ -299,13 +287,19 @@ const stats = [
             <div class="preview-grid">
               <div
                 class="preview-card"
-                v-for="(item, index) in previewItems"
-                :key="item.title"
+                v-for="(item, index) in heroPreviewImgs"
+                :key="item.id"
                 :style="{ animationDelay: `${index * 0.06}s` }"
               >
-                <span class="preview-card-mark">{{ index + 1 }}</span>
-                <span class="preview-card-title">{{ item.title }}</span>
-                <span class="preview-card-desc">{{ item.desc }}</span>
+                <img
+                  class="preview-thumb"
+                  :src="item.thumb_url"
+                  :alt="pickKeyword(item)"
+                  :width="item.width"
+                  :height="item.height"
+                  loading="lazy"
+                >
+                <span class="preview-card-title">{{ pickKeyword(item) }}</span>
               </div>
             </div>
 
@@ -416,28 +410,77 @@ const stats = [
 
     <section class="stats-section">
       <div class="stats-shell">
-        <div class="stats-heading">
-          <span class="section-kicker">Designed For Chat</span>
-          <h2>让表情管理更贴近真实使用</h2>
-          <p>保持轻量、简单和可控，不把整理表情变成另一件麻烦事。</p>
-        </div>
-
         <div class="stats-container">
           <div
             class="sticker-card stat-item"
-            v-for="stat in stats"
-            :key="stat.title"
-            :style="{ '--accent': stat.accent }"
+            v-for="card in statCards"
+            :key="card.label"
+            :style="{ '--accent': card.accent }"
           >
             <span class="card-topline" aria-hidden="true"></span>
-            <div class="stat-icon" v-html="stat.icon"></div>
-            <div class="stat-content">
-              <span class="stat-number">{{ stat.title }}</span>
-              <span class="stat-label">{{ stat.label }}</span>
-            </div>
+            <span class="stat-value">{{ card.value }}</span>
+            <span class="stat-label">{{ card.label }}</span>
           </div>
         </div>
+        <p class="stats-note" v-if="fetchedDate">索引数据更新于 {{ fetchedDate }} · 来自 api.sticker.moruteaven.com</p>
       </div>
+    </section>
+
+    <section class="wall-section">
+      <div class="section-header">
+        <span class="section-kicker">Live Index</span>
+        <h2 class="section-title">最新收录，<em>实时索引</em></h2>
+        <p class="section-description">
+          罐头持续搜罗全网表情包，{{ wallItems.length ? `这里是最新入库的 ${wallItems.length} 张。` : '数据更新中，稍后再来看。' }}
+          <template v-if="hasStats">全部 {{ formatNumber(stats!.images) }} 张都能在网页版里搜到。</template>
+        </p>
+      </div>
+
+      <div class="wall-grid" v-if="wallItems.length">
+        <figure
+          class="sticker-card wall-card"
+          v-for="item in wallItems"
+          :key="item.id"
+        >
+          <span class="card-topline" aria-hidden="true"></span>
+          <div class="wall-thumb">
+            <img
+              :src="item.thumb_url"
+              :alt="pickKeyword(item)"
+              :width="item.width"
+              :height="item.height"
+              loading="lazy"
+            >
+          </div>
+          <figcaption class="wall-meta">
+            <span class="wall-keyword">{{ pickKeyword(item) }}</span>
+            <span class="wall-source">{{ item.source_site }}</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="wall-empty" v-else>
+        <p>索引数据更新中，稍后再来看。</p>
+      </div>
+
+      <div class="wall-actions">
+        <a :href="WEB_APP_URL" class="action-button primary" v-if="hasStats">
+          去网页版搜索全部 {{ formatNumber(stats!.images) }} 张
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a :href="WEB_APP_URL" class="action-button primary" v-else>
+          打开网页版
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+      <p class="wall-copyright">
+        图片版权归源站 / 原作者所有；表情罐头仅提供索引与链接，点击结果将跳转至源站页面。
+      </p>
     </section>
 
     <section class="footer-section">
@@ -832,13 +875,13 @@ const stats = [
 
 .preview-card {
   position: relative;
-  padding: 12px 10px 10px;
+  padding: 7px;
   border-radius: 12px;
   background: var(--tk-soft);
   border: var(--tk-bd2);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
   opacity: 0;
   animation: card-in 0.5s ease forwards;
 }
@@ -854,25 +897,23 @@ const stats = [
   }
 }
 
-.preview-card-mark {
-  position: absolute;
-  top: 7px;
-  right: 9px;
-  font-family: var(--tk-f-num);
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--tk-muted);
+.preview-thumb {
+  display: block;
+  width: 100%;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--tk-line);
+  background: var(--tk-paper);
 }
 
 .preview-card-title {
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   color: var(--tk-ink);
-}
-
-.preview-card-desc {
-  font-size: 11.5px;
-  color: var(--tk-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .preview-status {
@@ -1259,64 +1300,147 @@ const stats = [
 }
 
 .stats-shell {
-  max-width: 1080px;
+  max-width: 860px;
   margin: 0 auto;
-}
-
-.stats-heading {
-  max-width: 640px;
-  margin: 0 auto 44px;
-  text-align: center;
 }
 
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
 
 .stat-item {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 26px 22px 22px;
-}
-
-.stat-icon {
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 14px;
-  background: var(--tk-soft);
-  border: var(--tk-bd2);
-  color: var(--tk-ink);
-}
-
-.stat-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.stat-content {
-  display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 30px 22px 24px;
+  text-align: center;
 }
 
-.stat-number {
-  font-family: var(--tk-f-disp);
-  font-size: 16.5px;
-  font-weight: 900;
+.stat-value {
+  font-family: var(--tk-f-num);
+  font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
   color: var(--tk-ink);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 13.5px;
+  font-weight: 700;
   line-height: 1.6;
   color: var(--tk-muted);
+}
+
+.stats-note {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--tk-muted);
+}
+
+/* ============ 最新收录墙 ============ */
+
+.wall-section {
+  padding: 40px 24px 80px;
+}
+
+.wall-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.wall-card {
+  margin: 0;
+  min-width: 0;
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.wall-thumb {
+  border-radius: 10px;
+  border: var(--tk-bd2);
+  background:
+    linear-gradient(45deg, var(--tk-soft) 25%, transparent 25%, transparent 75%, var(--tk-soft) 75%),
+    linear-gradient(45deg, var(--tk-soft) 25%, transparent 25%, transparent 75%, var(--tk-soft) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+  overflow: hidden;
+}
+
+.wall-thumb img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.wall-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wall-keyword {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--tk-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wall-source {
+  flex-shrink: 0;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--tk-sun);
+  border: var(--tk-bd2);
+  font-family: var(--tk-f-num);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--tk-ink);
+}
+
+.wall-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.wall-copyright {
+  max-width: 640px;
+  margin: 22px auto 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--tk-muted);
+}
+
+.wall-empty {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  border-radius: var(--tk-r);
+  background: var(--tk-paper);
+  border: var(--tk-bd);
+  box-shadow: var(--tk-sh);
+  text-align: center;
+  color: var(--tk-muted);
+  font-size: 14px;
 }
 
 /* ============ 页脚 ============ */
@@ -1378,6 +1502,12 @@ const stats = [
 
 /* ============ 响应式 ============ */
 
+@media (max-width: 1120px) {
+  .wall-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 960px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -1422,6 +1552,15 @@ const stats = [
   .docs-grid,
   .stats-container {
     grid-template-columns: 1fr;
+  }
+
+  .wall-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .wall-thumb img {
+    height: 110px;
   }
 }
 

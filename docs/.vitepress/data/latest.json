@@ -1,0 +1,714 @@
+{
+  "fetchedAt": "2026-11-15T02:54:48.829Z",
+  "degraded": false,
+  "stats": {
+    "images": 23251,
+    "sources": [
+      {
+        "source_site": "adoutu",
+        "n": 17043
+      },
+      {
+        "source_site": "zhuangbi",
+        "n": 2094
+      },
+      {
+        "source_site": "pdan",
+        "n": 1284
+      },
+      {
+        "source_site": "jandan",
+        "n": 1226
+      },
+      {
+        "source_site": "dogetu",
+        "n": 676
+      },
+      {
+        "source_site": "doutupk",
+        "n": 486
+      },
+      {
+        "source_site": "memecub",
+        "n": 402
+      },
+      {
+        "source_site": "soogif",
+        "n": 39
+      },
+      {
+        "source_site": "synthetic",
+        "n": 1
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "01a1ce49-6eaa-7fb4-899f-a4988c9f7693",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/de3c91559735b21e31522d5f65e25fa7.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "他为你着了魔，留着有什么用",
+        "他为你着了魔"
+      ],
+      "animated": true,
+      "width": 232,
+      "height": 150
+    },
+    {
+      "id": "01a1ce49-6eaa-7075-a859-fa938efe082d",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/d5485485c47e2449a8de15cda6f6400b.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "仓鼠上鼠标"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 149
+    },
+    {
+      "id": "01a1ce49-6eaa-7d37-a6ab-a841866d05fc",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/592ebec7f7d5d134ed3cdb86343ec07d.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今晚由我罩着你们装逼到天亮"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-796c-934f-c8fccbc64078",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/427b860dcd31000a798ef4c4fc72984f.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今晚有空吗猪拱白菜"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 217
+    },
+    {
+      "id": "01a1ce49-6eaa-79c0-a4ca-1bdabc933017",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/4640b07b701c85c5c8d08e51b850bac9.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今年找到女朋友"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 199
+    },
+    {
+      "id": "01a1ce49-6eaa-70e6-b06f-495ae60091e4",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/a0f45621f5c8f710b001296dd61ee805.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今天谁的鸡儿也不能放假"
+      ],
+      "animated": false,
+      "width": 173,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7a65-b481-5f1c60998116",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/8c57f288ea27a4b14a132e8204fb8c9e.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今天色图不合格"
+      ],
+      "animated": false,
+      "width": 219,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7c36-81b8-e97aaa97a3c0",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/c0edc2d55b1da319f9177224d83a5c31.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "他还是个孩子千万别放过他"
+      ],
+      "animated": false,
+      "width": 154,
+      "height": 154
+    },
+    {
+      "id": "01a1ce49-6eaa-7ab1-b3f9-0f5aec196039",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/e940d7e914b7c3d37ebff2b31759031f.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "仰望高端玩家"
+      ],
+      "animated": false,
+      "width": 120,
+      "height": 84
+    },
+    {
+      "id": "01a1ce49-6eaa-7cab-811f-44bc87999cda",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/174edd712bc3767ca036cf722b2e6c98.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今天的逼我装定了"
+      ],
+      "animated": false,
+      "width": 223,
+      "height": 231
+    },
+    {
+      "id": "01a1ce49-6eaa-7c26-97e9-8ab162bd1dd4",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/7167fe92fa9fad7c67c4a013f7b3b6fd.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今天又是充满希望的一天"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-708e-aeda-363e66efa49e",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/0026dc7da5ec51e7330259b2070771c4.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今修仙不成反堕魔实非我愿"
+      ],
+      "animated": false,
+      "width": 198,
+      "height": 188
+    },
+    {
+      "id": "01a1ce49-6eaa-7241-a2b3-13cd1b0db867",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/3a2087dcdbef5993edef53ea83138a7c.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "什么你说我是你爹"
+      ],
+      "animated": false,
+      "width": 224,
+      "height": 188
+    },
+    {
+      "id": "01a1ce49-6eaa-728c-a052-825a4e908244",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/ee7ee0eee2495cb2e1f9d5dcfd1d2579.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "人都去哪儿了？嗨起来！"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 235
+    },
+    {
+      "id": "01a1ce49-6eaa-7a94-b5c6-df5818c4ee1c",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/8a5ffafb154b60c46397a0e415941b19.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "什么操作？"
+      ],
+      "animated": false,
+      "width": 123,
+      "height": 127
+    },
+    {
+      "id": "01a1ce49-6eaa-7c9a-aaf3-d8ef208c682d",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/6577e8a8f04c67e5e61ae2d3c367078c.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "仿生熊猫正常"
+      ],
+      "animated": false,
+      "width": 158,
+      "height": 132
+    },
+    {
+      "id": "01a1ce49-6eaa-72a2-9981-79fe9a165151",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/ef983c8a4b766d5251a0c8186d4084a8.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "今天的爆率那叫一个高啊"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 149
+    },
+    {
+      "id": "01a1ce49-6eaa-7b22-908a-b15e5808f1fa",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/f638edca48a8c256f06ad0bb79828159.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一天到晚就知道装逼"
+      ],
+      "animated": true,
+      "width": 179,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7f20-bdc1-ed62d277fd82",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/5048dc1eef7a206b834d0ffdb45c15bc.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一定来不会咕"
+      ],
+      "animated": true,
+      "width": 132,
+      "height": 128
+    },
+    {
+      "id": "01a1ce49-6eaa-74d8-9e81-cf0f773e6229",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/09205c9dcb741b645818a9f2a73ad91d.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "POP子：我屌你老母"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 206
+    },
+    {
+      "id": "01a1ce49-6eaa-7bea-a0cd-623c0ee5bfa4",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/5d582920e69d2e3063e811f340ebb414.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "steam病毒"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 165
+    },
+    {
+      "id": "01a1ce49-6eaa-756b-bd70-52be334d86db",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/43a443a98dc6aa0411afe07e20846a6c.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一张色图都没有"
+      ],
+      "animated": false,
+      "width": 168,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7eb4-b132-222e46d0e041",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/61d9b1388b22509467bbd4100bc10db8.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "POP子PIP美JOJO"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 231
+    },
+    {
+      "id": "01a1ce49-6eaa-75a8-9ff5-adae0e3f2451",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/b8605194b0c049986bfa89adeed4f9b2.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "ctrl+cv"
+      ],
+      "animated": true,
+      "width": 102,
+      "height": 101
+    },
+    {
+      "id": "01a1ce49-6eaa-708c-a1f0-648460983465",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/3c4732c8185eaaf147312994390f474a.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "ギリギリ愛矩阵"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 154
+    },
+    {
+      "id": "01a1ce49-6eaa-7b3f-852e-2e0509d9e40f",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/4c9f34a9702ebc93a6fe05ce8252bb1a.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "Vault Boy避难所小子点赞",
+        "Vault"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7bad-b29c-e1a539557539",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/4c8a08f106351398d3a7fda8560061b6.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一个个这么丑还想我付钱来看你们"
+      ],
+      "animated": false,
+      "width": 198,
+      "height": 185
+    },
+    {
+      "id": "01a1ce49-6eaa-753e-8512-d610a02edd26",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/064a832eea4cd929ce8a8b1ed2c4373b.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一杯茶一包烟一个参数传一天"
+      ],
+      "animated": false,
+      "width": 238,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7031-be6a-e00d94aa7b03",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/5290f6fe8dcfa8cf87e125051c913124.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "6666"
+      ],
+      "animated": true,
+      "width": 120,
+      "height": 70
+    },
+    {
+      "id": "01a1ce49-6eaa-7905-bc9b-02707902ec29",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/a8b230a0b1b69ec5b9e984dda85c2e72.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "七夕发礼物了，绿帽",
+        "七夕发礼物了"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 101
+    },
+    {
+      "id": "01a1ce49-6eaa-7753-9823-ed99a1831e90",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/83836d959fb4e1a46eec13368206f200.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "gay里gay气的先掐死再说"
+      ],
+      "animated": false,
+      "width": 162,
+      "height": 198
+    },
+    {
+      "id": "01a1ce49-6eaa-73a7-88d9-c51b2421a7fe",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/c9f38aaf71d3df99856f7e8667b7577b.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "上来吧以后你装逼我不打你了真的吗"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 222
+    },
+    {
+      "id": "01a1ce49-6eaa-7933-9c62-87993c305954",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/e178662331a234712ddabe09afa515e5.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不会啊"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-7340-99c1-92a7efbfd92e",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/290e823709423ca843f7810ad4ba6c61.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不够色！"
+      ],
+      "animated": false,
+      "width": 152,
+      "height": 152
+    },
+    {
+      "id": "01a1ce49-6eaa-75f7-ae8f-53cfdafb8449",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/e5389a3bf68901d101cd0b29472dae67.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不愧是我"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 211
+    },
+    {
+      "id": "01a1ce49-6eaa-72bf-bef7-b01717d1b24b",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/0ccf2e990157ba01e2d4307ba81b3a43.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不是信不过你，是我们大家想开开眼界",
+        "不是信不过你"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "01a1ce49-6eaa-7f53-8ce5-2c8fffc4ca17",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/7943d531334ff7506f29d3f119010c12.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不行你智商太低再传下去会走火入魔的"
+      ],
+      "animated": false,
+      "width": 224,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eaa-738e-8a76-922d0ca74037",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/2571d41243e190b3d4e11cd8e2e92015.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "丑B群主"
+      ],
+      "animated": false,
+      "width": 138,
+      "height": 135
+    },
+    {
+      "id": "01a1ce49-6eaa-757c-a3f3-2326fce6a961",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/37d57aa2fb77f089102d537b4f1445fc.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "丞相：你他妈倒是上个图啊"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 188
+    },
+    {
+      "id": "01a1ce49-6eaa-7426-89d7-6412f270504d",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/455938a5df25e8d3128a7d6f8c11fc0a.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "中分小猫"
+      ],
+      "animated": false,
+      "width": 81,
+      "height": 78
+    },
+    {
+      "id": "01a1ce49-6eaa-768f-a9f0-f9793538e566",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/d92d4056723105625c0ccc95b22aa4c5.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "为我们的友谊干杯"
+      ],
+      "animated": true,
+      "width": 130,
+      "height": 112
+    },
+    {
+      "id": "01a1ce49-6eaa-7fd2-9ba0-34fcca99de43",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/12c9f4f60d2328dafec4ff9de5aed822.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一时语塞"
+      ],
+      "animated": false,
+      "width": 53,
+      "height": 65
+    },
+    {
+      "id": "01a1ce49-6eaa-795b-9d4f-181c55cb80e1",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/6b3b86834fb8b44cec22d46e5f0e0ad3.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "OK交易成功"
+      ],
+      "animated": false,
+      "width": 105,
+      "height": 77
+    },
+    {
+      "id": "01a1ce49-6eaa-7de8-b891-42f3ecab52e0",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/a45a1a5f1e5fb87e426a30df91ffe5ac.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一个能斗图的都没有真寂寞"
+      ],
+      "animated": false,
+      "width": 215,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7bab-bbb3-97c7fba79a6e",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/51a1571eea2edeb5a6f10a7f8678b4ff.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不得不承认 现在你比较强",
+        "不得不承认"
+      ],
+      "animated": false,
+      "width": 209,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7b90-b4ed-d12732085ea2",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/020089cfeb545b4b746212d4e7c6ff24.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "6你麻痹老子是9"
+      ],
+      "animated": false,
+      "width": 191,
+      "height": 198
+    },
+    {
+      "id": "01a1ce49-6eab-79fd-8db8-0da662cb928d",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/7cea6fd7497af1203691ddc04ad43282.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "QQ群背景医生病人"
+      ],
+      "animated": false,
+      "width": 134,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7e8e-a8fa-764d9d2e55e1",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/0956d7af6e3ae1e700bcccd460ce3df5.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一位群友及时修好复读机"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "01a1ce49-6eab-7276-a269-f0fb8a1ac829",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/ad152303defa571f89bd4be92f1115d3.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一位群友及时砸了复读机，打断了复读",
+        "一位群友及时砸了复读机"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "01a1ce49-6eab-7495-86df-d97b674bed33",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/2a83eb5e1a71ce804d0b269b51f96b01.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "New-Game-长脖凉风青叶"
+      ],
+      "animated": true,
+      "width": 173,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7eb2-b27b-df28cdcb3b01",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/bc1e8e7b2ba4fef9b6801fe8c6c428cd.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一柱擎天：早上好，早你妈逼放我下来",
+        "一柱擎天：早上好"
+      ],
+      "animated": false,
+      "width": 223,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7620-b734-8292062c8365",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/951f90d60dddf90e87fb0987a35a4783.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一泡尿"
+      ],
+      "animated": false,
+      "width": 184,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7f7c-98e2-4d24f6082cbf",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/58a05b9c01b1b26b2d3441028497d95d.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一群骚货宝宝脸都红了"
+      ],
+      "animated": false,
+      "width": 224,
+      "height": 169
+    },
+    {
+      "id": "01a1ce49-6eab-7aa0-8801-f27d4db43982",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/83b8803bb96bc4bf78a74540fba2cec6.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一脸懵逼"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 240
+    },
+    {
+      "id": "01a1ce49-6eab-7bf7-b8f8-eba3a7ca0824",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/bde66aa7c8451c0752887c97e2050cfe.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一脸懵逼"
+      ],
+      "animated": false,
+      "width": 101,
+      "height": 82
+    },
+    {
+      "id": "01a1ce49-6eab-70e0-8b32-dcfe265bc4f5",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/bcad2f743a27f4371a1feee9b782da85.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一脸正气"
+      ],
+      "animated": false,
+      "width": 194,
+      "height": 198
+    },
+    {
+      "id": "01a1ce49-6eab-7293-b5c0-ea1bbc97fec3",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/6eb6613ff7208623bcc6ddaa5005ebc9.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "不会百度吗？"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "01a1ce49-6eab-7f28-b3a9-fd060bcf2b17",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/2d14e12fb7355aa17783b8bfd531fec4.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一起哈啤"
+      ],
+      "animated": false,
+      "width": 120,
+      "height": 102
+    },
+    {
+      "id": "01a1ce49-6eab-78d4-8043-793fab0dfc52",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/7a67d731c098abfa762c33112b599697.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一键原谅"
+      ],
+      "animated": false,
+      "width": 240,
+      "height": 174
+    },
+    {
+      "id": "01a1ce49-6eab-702c-81b1-76dc6a1e3161",
+      "thumb_url": "https://thumb.sticker.moruteaven.com/4d94762951d6af52b6ec149defd277d0.webp",
+      "source_site": "zhuangbi",
+      "keywords": [
+        "一键猫叫"
+      ],
+      "animated": true,
+      "width": 240,
+      "height": 240
+    }
+  ]
+}
