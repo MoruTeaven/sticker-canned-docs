@@ -499,6 +499,8 @@ const docCards = [
           <a href="/guide/getting-started">使用文档</a>
           <span class="divider">|</span>
           <a href="/guide/storage/">存储配置</a>
+          <span class="divider">|</span>
+          <a href="/bot">爬虫声明</a>
         </div>
       </div>
     </section>

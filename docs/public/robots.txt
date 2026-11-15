@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# 表情罐头文档站；索引服务爬虫声明见 /bot.txt 与 /bot

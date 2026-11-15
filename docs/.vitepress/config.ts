@@ -20,6 +20,7 @@ export default defineConfig({
       { text: '使用指南', link: '/guide' },
       { text: '下载', link: '/download' },
       { text: '更新日志', link: '/changelog' },
+      { text: '爬虫声明', link: '/bot' },
       { text: '网页版', link: 'https://app.sticker.moruteaven.com/' }
     ],
     socialLinks: [

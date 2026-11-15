@@ -1,0 +1,7 @@
+MoruTeaven-bot/0.1
+官网: https://sticker.moruteaven.com/bot
+用途: 表情罐头（sticker.moruteaven.com）的图片索引爬虫，仅访问 robots.txt 允许的路径。
+礼貌参数: 同域请求间隔 >=1.5s，全局并发 <=2，默认限速 1Mbps，夜间调度为主。
+联系: me@MoruTeaven.com（要求降频 / 整站退出索引均可，收到即执行）。
+索引纪律: 只收录表情/图集/动漫/娱乐类目页面；不收录时政与社会新闻页面。
+本站仅存储搜索用缩略图与元数据；原图始终保存在源站。

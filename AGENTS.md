@@ -3,6 +3,7 @@
 ## 近期更新
 
 ### 2026-11-15
+- 新增「爬虫声明」页 /bot（docs/bot.md），与网页版 app.sticker.moruteaven.com/bot.txt 同步：说明 MoruTeaven-bot/0.1 的用途/礼貌参数/索引纪律/退出机制；bot.txt 里声明的官网地址 https://sticker.moruteaven.com/bot 此前 404，本次补齐；docs/public 下新增 bot.txt（逐字副本）+ robots.txt，顶部导航与首页 footer 各加入口
 - 「最新收录」卡片改为链接（div → a），href 指向 app.sticker.moruteaven.com/i/<id> 详情页；自有域已在外链白名单，点击直跳无确认页；补 aria-label 与 focus-visible 焦点环
 - 「最新收录」卡片 UI 对齐网页版实测样式：CSS 多列瀑布流（column-count:5 / column-gap:16px，图片按原始比例自然撑开不拉伸）、纯图卡片（3px 描边 + 5px 硬阴影 + 18px 圆角）、来源药丸绝对定位叠图片左下角（白底 + 彩色圆点，按 source_site 映射五色板）；移除关键词文字行、棋盘格底、彩色顶条
 - 移除首页三张收录统计卡（statCards/fetchedDate 计算属性、stats-inline DOM 与样式一并删除）；收录墙描述与 CTA 仍引用 /stats 的 images 数字
